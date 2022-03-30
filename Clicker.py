@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 class Clicker(ABC):
-    """Abstract class Clicker"""
+    """An abstract class Clicker"""
     def __init__(self, stopbutton: str):
         self.stopbutton: str = stopbutton
 
