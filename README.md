@@ -1,2 +1,2 @@
 # Clicker
-This is my first clicker
+This is my first clicker on python
