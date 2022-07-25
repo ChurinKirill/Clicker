@@ -1,7 +1,5 @@
 import keyboard
-import pyautogui
 import sys
-from Clicker import Clicker
 from Clicker1 import Clicker1
 from Clicker2 import Clicker2
 
@@ -11,16 +9,20 @@ def finish() -> None:
 
 print("program started")
 
-arg = sys.argv
-clicker = ''
-if arg[1] == "click":
-    clicker = Clicker1(arg[2], int(arg[3]))
-elif arg[1] == "hold":
-    clicker = Clicker2(arg[2])
-
+startbutton: str = input("Enter start button: ")
+exitbutton: str = input("Enter exit button: ")
+clicker = None
+type: str = int(input(
+"""Enter clicker type:\n
+1.Clicker cklicks on current mouse position with n seconds interval\n
+2.Clicker holds mouse button\n"""))
+if type == 1:
+    clicker = Clicker1(input("Enter stopbutton: "), float(input("Enter interval (seconds): ")))
+elif type == 2:
+    clicker = Clicker2(input("Enter stopbutton: "))
+print("Press start button to run clicker")
 while True:
-    if keyboard.is_pressed("grave"):
+    if keyboard.is_pressed(startbutton):
         clicker.start()
-        print("clicker finished")
-    if keyboard.is_pressed("delete"):
+    if keyboard.is_pressed(exitbutton):
         finish()

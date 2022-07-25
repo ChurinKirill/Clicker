@@ -10,4 +10,5 @@ class Clicker2(Clicker):
         while True:
             if keyboard.is_pressed(self.stopbutton):
                 pyautogui.mouseUp()
+                print("clicker finished")
                 return
